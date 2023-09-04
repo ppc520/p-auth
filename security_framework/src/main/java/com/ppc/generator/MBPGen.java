@@ -41,7 +41,7 @@ public class MBPGen {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/security_framework/src/main/java/com/ppc/test");//设置代码生成路径
+        gc.setOutputDir(projectPath + "/security_framework/src/main/java");//设置代码生成路径
         gc.setFileOverride(true);//是否覆盖以前文件
         gc.setOpen(false);//是否打开生成目录
         gc.setAuthor("ppc");//设置项目作者名称

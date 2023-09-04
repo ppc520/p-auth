@@ -14,7 +14,7 @@ public class R {
     private String message;
     private Map<String,Object> data=new HashMap<>();
 
-    private R(){
+    public R(){
     }
     public static R ok(){
         R r=new R();

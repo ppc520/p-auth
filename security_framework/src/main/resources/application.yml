@@ -13,3 +13,8 @@ mybatis-plus:
     db-config:
       logic-not-delete-value: 0
       logic-delete-value: 1
+jwt:
+  config:
+    access-token-expire: 600000
+    refresh-token-expire: 3000000
+    secret: ppc520www

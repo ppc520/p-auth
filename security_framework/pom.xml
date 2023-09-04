@@ -23,6 +23,7 @@
 		<druid.version>1.2.9</druid.version>
 		<lombok.version>1.18.24</lombok.version>
 		<velocity-engine-core>2.2</velocity-engine-core>
+		<jwt-version>0.9.1</jwt-version>
 	</properties>
 
 	<dependencies>
@@ -74,6 +75,11 @@
 			<version>${velocity-engine-core}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jwt-version}</version>
+		</dependency>
 
 	</dependencies>
 

@@ -43,7 +43,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("Swagger3接口文档")
-                .description("前后端分离的接口文档")
+                .description("所有接口的接口文档")
                 .version("1.0")
                 .build();
     }

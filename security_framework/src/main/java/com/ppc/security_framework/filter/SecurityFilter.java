@@ -1,5 +1,6 @@
 package com.ppc.security_framework.filter;
 
+import com.ppc.common.util.JWTUtil;
 import org.springframework.util.ObjectUtils;
 
 import javax.servlet.*;
@@ -19,14 +20,15 @@ public class SecurityFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        String token=((HttpServletRequest)servletRequest).getHeader("token");
+        String accessToken=((HttpServletRequest)servletRequest).getHeader("access-token");
         String curPath=((HttpServletRequest)servletRequest).getRequestURI();
         if (curPath.contains("swagger")||curPath.contains("api-docs")){
             filterChain.doFilter(servletRequest,servletResponse);
         }
-        else if (ObjectUtils.isEmpty(token)&&!curPath.contains("/login")){
+        else if (ObjectUtils.isEmpty(accessToken)&&!curPath.contains("/login")){
             ((HttpServletResponse)servletResponse).setStatus(401);
-        }else{
+            ((HttpServletResponse)servletResponse).getWriter().write();
+        } else{
             filterChain.doFilter(servletRequest,servletResponse);
         }
     }
