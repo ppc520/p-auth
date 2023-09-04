@@ -8,11 +8,23 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.ppc</groupId>
 	<artifactId>security_framework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>security_framework</name>
 	<description>security_framework</description>
+
+	<properties>
+		<mybatis-plus.version>3.0.5</mybatis-plus.version>
+		<mybatis-plus-generator>3.0.5</mybatis-plus-generator>
+		<springfox.version>3.0.0</springfox.version>
+		<mysql-connector.version>5.1.49</mysql-connector.version>
+		<druid.version>1.2.9</druid.version>
+		<lombok.version>1.18.24</lombok.version>
+		<velocity-engine-core>2.2</velocity-engine-core>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -27,8 +39,41 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
+			<version>${springfox.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis-plus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>${mybatis-plus-generator}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>${velocity-engine-core}</version>
+		</dependency>
+
 
 	</dependencies>
 
