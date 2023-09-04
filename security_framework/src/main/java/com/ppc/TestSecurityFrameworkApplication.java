@@ -2,12 +2,14 @@ package com.ppc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-public class SecurityFrameworkApplication {
+@ServletComponentScan
+public class TestSecurityFrameworkApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityFrameworkApplication.class, args);
+		SpringApplication.run(TestSecurityFrameworkApplication.class, args);
 	}
 
 }
