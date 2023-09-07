@@ -1,24 +1,35 @@
-package com.ppc.common.util;
+package security.ppc.security_framework.util;
 
 import io.jsonwebtoken.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import security.ppc.security_framework.config.JwtConfig;
 
+import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 @Component
+@Order(1)
 public class JWTUtil {
+    @Autowired
+    private JwtConfig jwtConfig;
     private static final String CLAIM_KEY_USERNAME = "username";
     private static final String CLAIM_KEY_EXPIRE = "expireTime";
-
-    @Value("${jwt.config.secret}")
-    private String SECRET;//创建加密盐
-    @Value("${jwt.config.access-token-expire}")
+    private String SECRET;
     private Long ACCESS_TOKEN_EXPIRE;
-    @Value("${jwt.config.refresh-token-expire}")
     private Long REFRESH_TOKEN_EXPIRE;
+
+    @PostConstruct
+    private void init(){
+        this.SECRET= jwtConfig.getSecret();
+        this.ACCESS_TOKEN_EXPIRE= jwtConfig.getAccessTokenExpire();
+        this.REFRESH_TOKEN_EXPIRE= jwtConfig.getRefreshTokenExpire();
+    }
 
     public String getAccessToken(String username) {
         HashMap<String, Object> claims = new HashMap<>();

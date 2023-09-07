@@ -5,15 +5,17 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ppc.entity.UserRoles">
         <id column="id" property="id" />
-        <result column="user_name" property="userName" />
+        <result column="username" property="username" />
         <result column="role_name" property="roleName" />
+        <result column="createdAt" property="createdAt" />
+        <result column="updatedAt" property="updatedAt" />
         <result column="deleted" property="deleted" />
         <result column="version" property="version" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, user_name, role_name, deleted, version
+        id, username, role_name, createdAt, updatedAt, deleted, version
     </sql>
 
 </mapper>

@@ -7,13 +7,15 @@
         <id column="id" property="id" />
         <result column="role_name" property="roleName" />
         <result column="permission_name" property="permissionName" />
+        <result column="createdAt" property="createdAt" />
+        <result column="updatedAt" property="updatedAt" />
         <result column="deleted" property="deleted" />
         <result column="version" property="version" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, role_name, permission_name, deleted, version
+        id, role_name, permission_name, createdAt, updatedAt, deleted, version
     </sql>
 
 </mapper>

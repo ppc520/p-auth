@@ -7,15 +7,15 @@
         <id column="id" property="id" />
         <result column="username" property="username" />
         <result column="password" property="password" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <result column="createdAt" property="createdAt" />
+        <result column="updatedAt" property="updatedAt" />
         <result column="deleted" property="deleted" />
         <result column="version" property="version" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, username, password, created_at, updated_at, deleted, version
+        username, password, id, createdAt, updatedAt, deleted, version
     </sql>
 
 </mapper>

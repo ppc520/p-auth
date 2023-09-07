@@ -1,16 +1,30 @@
 package security.ppc.security_framework.config;
 
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-@Data
-@ToString
+@Getter
+@Setter
 @Component
-@ConfigurationProperties(prefix = "jwt.config")
+@ConfigurationProperties("jwt.config")
+@Order(2)
 public class JwtConfig {
-    private Long accessTokenExpire;
-    private Long refreshTokenExpire;
-    private String secret;
+    public Long accessTokenExpire=10000L;
+    public Long refreshTokenExpire=20000L;
+    public String secret="ppc";
+    public String accessTokenName="access-token";
+    public String refreshTokenName="refresh-token";
+    public JwtConfig(){
+
+    }
+
+    public JwtConfig(Long accessTokenExpire, Long refreshTokenExpire, String secret, String accessTokenName, String refreshTokenName) {
+        this.accessTokenExpire = accessTokenExpire;
+        this.refreshTokenExpire = refreshTokenExpire;
+        this.secret = secret;
+        this.accessTokenName = accessTokenName;
+        this.refreshTokenName = refreshTokenName;
+    }
 }

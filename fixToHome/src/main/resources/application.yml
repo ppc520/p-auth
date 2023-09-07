@@ -17,5 +17,8 @@ jwt:
   config:
     access-token-expire: 600000
     refresh-token-expire: 3000000
-    secret: ppc520www
+    secret: fhsuhfuhfuf
+    access-token-name: access-token1
+    refresh-token-name: refresh-token1
+
 

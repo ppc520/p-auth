@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author ppc
- * @since 2023-09-04
+ * @since 2023-09-07
  */
 public interface PermissionsService extends IService<Permissions> {
 
