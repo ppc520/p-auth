@@ -13,12 +13,22 @@ mybatis-plus:
     db-config:
       logic-not-delete-value: 0
       logic-delete-value: 1
-jwt:
-  config:
-    access-token-expire: 600000
-    refresh-token-expire: 3000000
-    secret: fhsuhfuhfuf
-    access-token-name: access-token1
-    refresh-token-name: refresh-token1
+security-frame:
+  jwt-config:
+      access-token-expire: 600000
+      refresh-token-expire: 3000000
+      secret: fhsuhfuhfuf
+      access-token-name: access-token1
+      refresh-token-name: refresh-token1
+  result-entity:
+    path: com.ppc.common.result.R
+    code-field-name: code
+    message-field-name: message
+    data-field-name: data
+  authentication-config:
+    login-path: /login
+    strict-matching: false
+    username-field-name: username
+
 
 

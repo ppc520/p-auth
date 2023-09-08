@@ -65,7 +65,7 @@ public class MBPGen {
         pc.setParent("com.ppc");
         pc.setMapper("mapper");
         pc.setXml("mapper.xml");
-        pc.setEntity("entity");
+        pc.setEntity("access_control_model");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setController("controller");

@@ -3,7 +3,7 @@ package com.ppc.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ppc.common.result.R;
-import security.ppc.security_framework.util.JWTUtil;
+import ppc.security_framework.util.JWTUtil;
 import com.ppc.entity.Users;
 import com.ppc.entity.vo.UsersVo;
 import com.ppc.service.UsersService;
