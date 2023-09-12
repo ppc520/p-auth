@@ -1,15 +1,15 @@
 package ppc.security_framework.interceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.stereotype.Component;
 import ppc.security_framework.exception.UnAuthorizeException;
 import ppc.security_framework.util.JWTUtil;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-public class RefreshTokenValidInterceptor implements HandlerInterceptor {
+@Component
+public class AccessTokenValidCustomInterceptor implements CustomInterceptorAdapter {
     @Autowired
     private JWTUtil jwtUtil;
     private String accessTokenName;
@@ -19,13 +19,12 @@ public class RefreshTokenValidInterceptor implements HandlerInterceptor {
         this.accessTokenName= jwtUtil.getAccessTokenName();
         this.refreshTokenName= jwtUtil.getRefreshTokenName();
     }
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (!jwtUtil.isValidRefreshToken(request.getHeader(refreshTokenName))){
+        String access_token=request.getHeader(accessTokenName);
+        if (!jwtUtil.isValidAccessToken(access_token)){
             throw new UnAuthorizeException("token无效");
         }
         return true;
     }
-
 }

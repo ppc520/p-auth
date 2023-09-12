@@ -8,8 +8,8 @@
         <version>2.7.15</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>security.ppc</groupId>
-    <artifactId>security</artifactId>
+    <groupId>ppc</groupId>
+    <artifactId>security_framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>security</name>
     <description>security</description>

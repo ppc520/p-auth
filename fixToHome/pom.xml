@@ -86,8 +86,8 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>security.ppc</groupId>
-			<artifactId>security</artifactId>
+			<groupId>ppc</groupId>
+			<artifactId>security_framework</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

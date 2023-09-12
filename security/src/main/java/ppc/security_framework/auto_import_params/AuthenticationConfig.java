@@ -15,5 +15,6 @@ public class AuthenticationConfig {
     private String loginPath="/login";
     private Boolean pathStrictMatching=false;
     private UsernameFieldLocationEnum usernameFieldLocation= UsernameFieldLocationEnum.requestbody;
+    private String codeFieldNameSuccessCode="1000";
 }
 

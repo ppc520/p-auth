@@ -1,15 +1,15 @@
 package ppc.security_framework.interceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.stereotype.Component;
 import ppc.security_framework.exception.UnAuthorizeException;
 import ppc.security_framework.util.JWTUtil;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-public class RefreshTokenUnexpiredInterceptor implements HandlerInterceptor {
+@Component
+public class AccessTokenUnexpiredCustomInterceptor implements CustomInterceptorAdapter {
     @Autowired
     private JWTUtil jwtUtil;
     private String accessTokenName;
@@ -21,9 +21,9 @@ public class RefreshTokenUnexpiredInterceptor implements HandlerInterceptor {
     }
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String refreshToken=request.getHeader(refreshTokenName);
-        if (!jwtUtil.isUnexpired(refreshToken)){
-            throw new UnAuthorizeException("token过期");
+        String access_token=request.getHeader(accessTokenName);
+        if (!jwtUtil.isUnexpired(access_token)){
+            throw new UnAuthorizeException("token已过期");
         }
         return true;
     }
