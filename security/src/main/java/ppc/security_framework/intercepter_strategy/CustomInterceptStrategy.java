@@ -7,7 +7,7 @@ import ppc.security_framework.interceptor.CustomInterceptorAdapter;
 
 import java.util.List;
 
-public class CustomInterceptStrategy implements WebMvcConfigurer {
+public class CustomInterceptStrategy implements WebMvcConfigurer,CommonAccessControlStrategy {
     private List<CustomInterceptorAdapter> interceptors;
     public CustomInterceptStrategy(List<CustomInterceptorAdapter> interceptors){
         this.interceptors = interceptors;
