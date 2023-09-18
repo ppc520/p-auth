@@ -36,6 +36,10 @@ security-frame:
 @Configuration
 public class SecurityConfig {
     //用于配置用户自定义策略，需要设置用户设置一个entity传入该Bean
+    @Autowired
+    private AccessTokenValidCustomInterceptor accessTokenValidCustomInterceptor;
+    @Autowired
+    private RefreshTokenUnexpiredCustomInterceptor refreshTokenUnexpiredCustomInterceptor;
     @Bean
     CustomInterceptStrategy getCustomStrategy(){
         AccessControlEntity entity=
@@ -43,10 +47,10 @@ public class SecurityConfig {
                 .setRole("ppc")
                 .setPermission("555")
                 .build();
-        CustomInterceptStrategy strategy= 
+        CustomInterceptStrategy strategy=
                 new CustomInterceptStrategyFactory()
-                .addInterceptor(new AccessTokenValidCustomInterceptor())
-                .addInterceptor(new RefreshTokenUnexpiredCustomInterceptor())
+                .addInterceptor(accessTokenValidCustomInterceptor)
+                .addInterceptor(refreshTokenUnexpiredCustomInterceptor)
                 .build();
         strategy.setAccessControlModel(entity);
         return strategy;

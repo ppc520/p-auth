@@ -25,14 +25,14 @@ public class AuthenticationUtil {
     private ResultEntityConfig resultEntityConfig;
 
     private String usernameFieldName;
-    private String loginPath;
+    private String[] releasePath;
     private Boolean pathStrictMatching;
     private UsernameFieldLocationEnum usernameFieldLocation;
 
     @PostConstruct
     private void init(){
         this.usernameFieldName=authenticationConfig.getUsernameFieldName();
-        this.loginPath=authenticationConfig.getLoginPath();
+        this.releasePath=authenticationConfig.getReleasePath();
         this.pathStrictMatching=authenticationConfig.getPathStrictMatching();
         this.usernameFieldLocation=authenticationConfig.getUsernameFieldLocation();
     }
@@ -98,8 +98,13 @@ public class AuthenticationUtil {
         response.setHeader(jwtUtil.getAccessTokenName(), newAccessToken);
     }
 
-    public boolean isLoginPath(HttpServletRequest request) {
-        return request.getRequestURI().contains(loginPath);
+    public boolean isReleasePath(HttpServletRequest request) {
+        for (String path : releasePath) {
+            if (request.getRequestURI().contains(path)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isUnexpiredRefreshToken(HttpServletRequest request) {
@@ -116,8 +121,8 @@ public class AuthenticationUtil {
         return usernameFieldName;
     }
 
-    public String getLoginPath() {
-        return loginPath;
+    public String[] getReleasePath() {
+        return releasePath;
     }
 
     public Boolean getPathStrictMatching() {

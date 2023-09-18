@@ -10,7 +10,7 @@ import ppc.security_framework.util.JWTUtil;
 
 @Component
 @ConfigurationPropertiesScan("ppc.security_framework.auto_import_params")
-@Import({JWTUtil.class,GenerateCommonResultUtil.class, AuthenticationUtil.class})
+@Import({JWTUtil.class,GenerateCommonResultUtil.class, AuthenticationUtil.class,GlobalExceptionHandler.class})
 @ComponentScan("ppc.security_framework.interceptor")
 public class AutoImportConfig {
 

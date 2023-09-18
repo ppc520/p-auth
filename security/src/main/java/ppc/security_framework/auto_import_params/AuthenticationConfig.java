@@ -12,7 +12,7 @@ import ppc.security_framework.auto_import_params.enums.UsernameFieldLocationEnum
 @ConfigurationProperties("security-frame.authentication-config")
 public class AuthenticationConfig {
     private String usernameFieldName="username";
-    private String loginPath="/login";
+    private String[] releasePath= {"/login"};
     private Boolean pathStrictMatching=false;
     private UsernameFieldLocationEnum usernameFieldLocation= UsernameFieldLocationEnum.requestbody;
     private String codeFieldNameSuccessCode="1000";

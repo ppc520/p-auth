@@ -26,10 +26,15 @@ security-frame:
     message-field-name: message
     data-field-name: data
   authentication-config:
-    login-path: /login #认证时的url
+    release-path:
+      - /login
+      - swagger
+      - api-docs
+      - .ico #无需认证的url
     username-field-name: username #前端传入的json中username的字段名
-    path-strict-matching: false #严格匹配url，设置为true需要路径完全匹配才会通过认证
     code-field-name-success-code: 1000 #用户返回实体的code，表示认证成功时的码值
-
+logging:
+  level:
+    root: debug
 
 
